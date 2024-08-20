@@ -2,10 +2,12 @@
   "name": "common-password",
   "version": "0.1.2",
   "description": "Checks if given password is popular.",
-  "main": "./lib/common-password.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "postinstall": "node ./lib/generate-json.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npx ts-node ./src/generate-json.ts",
+    "build": "tsup"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,13 @@
   },
   "homepage": "https://github.com/meehow/common-password",
   "dependencies": {
-    "buffer-crc32": "^0.2.5"
+    "buffer-crc32": "^0.2.5",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/buffer-crc32": "^0.2.4",
+    "@types/node": "^22.4.1",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
   }
 }
